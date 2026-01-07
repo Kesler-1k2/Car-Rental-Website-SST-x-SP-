@@ -5,6 +5,73 @@ from helper_functions.utility import check_password
 
 # from helper_functions import llm
 from logics.customer_query_handler import process_user_message
+from datetime import datetime
+current_datetime = datetime.now()
+st.title("VB Transport Ltd")
+
+st.write(':red[#1 Car Rental Company in Singapore]')
+
+st.caption("R. VB Ltd")
+if st.sidebar.button("Home"):
+    page = "Home"
+if st.sidebar.button("Car Rental"):
+    page = "Car Rental"
+if st.sidebar.button("List of Available Cars"):
+    page = "List of Available Cars"
+
+
+
+if page == 'Home':
+    st.header('Welcome to the home page!')
+elif page == 'Car Rental':
+    st.header('Car Rental.')
+    st.title('Forms Demo')
+    with st.form('profile_form'):
+        name = st.text_input('Name')
+        email = st.text_input('Email')
+        options = ["Toyota Sienta", "Toyota Prius", "Mazda CX-3", "Subaru e-Outback"]
+        selection = st.pills("Directions", options, selection_mode="single")
+        st.markdown(f"Your selected options: {selection}.")
+        newsletter = st.checkbox('Subscribe to newsletter')
+        submitted = st.form_submit_button('Submit')
+
+    if submitted:
+        st.success(f'''
+        Car Rental
+        {current_datetime}
+        Selected Car: {selection}
+        ''')
+
+elif page == 'List of Available Cars':
+  st.caption("Toyota Sienta")
+  st.caption("Toyota Prius")
+  st.caption("Mazda CX-3")
+  st.caption("Subaru e-Outback")
+# 1. Define the CSS for the background image
+# We use Python f-strings to make it easy to swap the URL if needed.
+  st.header("Cars Available")
+image_url = "https://images.unsplash.com/photo-1542281286-9e0a16bb7366"
+
+background_css1 = f"""
+<style>
+[data-testid="stAppViewContainer"] {{
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/motoristprod/editors%2Fimages%2F1640710025723-1640710025723.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}}
+
+/* Optional: This creates a semi-transparent overlay to make text readable */
+[data-testid="stHeader"] {{
+    background-color: rgba(0,0,0,0);
+}}
+</style>
+"""
+
+# 2. Inject the CSS into the Streamlit app
+st.markdown(background_css1, unsafe_allow_html=True)
+
+# 3. Your actual Python logic goes here
 
 
 # region <--------- Streamlit App Configuration --------->
