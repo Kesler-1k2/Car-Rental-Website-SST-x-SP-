@@ -1,11 +1,12 @@
 # Set up and run this Streamlit App
 import streamlit as st
 import pandas as pd
-from helper_functions.utility import check_password
-
-# from helper_functions import llm
-from logics.customer_query_handler import process_user_message
+import os   # <--- This was missing
+import csv  # <--- This is needed for writing the file
 from datetime import datetime
+
+# 1. SETUP PAGE CONFIG (Must be first)
+st.set_page_config(layout="centered", page_title="VB Transport Ltd")
 current_datetime = datetime.now()
 st.title("VB Transport Ltd")
 
