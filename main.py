@@ -11,7 +11,7 @@ st.title("VB Transport Ltd")
 
 st.write(':red[#1 Car Rental Company in Singapore]')
 page = "Home"
-st.caption("R. VB Ltd")
+
 if st.sidebar.button("Home"):
     page = "Home"
 if st.sidebar.button("Car Rental"):
@@ -74,7 +74,7 @@ elif page == 'Help':
       print(course_details)
       df = pd.DataFrame(course_details)
       df
-
+st.caption("2026 VB Ltd®")
 background_css1 = f"""
 <style>
 [data-testid="stAppViewContainer"] {{
