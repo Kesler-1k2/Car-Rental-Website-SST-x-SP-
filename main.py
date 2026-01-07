@@ -18,7 +18,8 @@ if st.sidebar.button("Car Rental"):
     page = "Car Rental"
 if st.sidebar.button("List of Available Cars"):
     page = "List of Available Cars"
-
+if st.sidebar.button("Help"):
+    page = 'Help'
 
 
 if page == 'Home':
@@ -52,6 +53,29 @@ elif page == 'List of Available Cars':
   st.header("Cars Available")
 image_url = "https://images.unsplash.com/photo-1542281286-9e0a16bb7366"
 
+elif page == 'Help':
+  
+form = st.form(key="form")
+form.subheader("Prompt")
+
+user_prompt = form.text_area("Enter your prompt here", height=200)
+
+if form.form_submit_button("Submit"):
+
+    st.toast(f"User Input Submitted - {user_prompt}")
+
+    st.divider()
+
+    response, course_details = process_user_message(user_prompt)
+    st.write(response)
+    print(response)
+
+    st.divider()
+
+    print(course_details)
+    df = pd.DataFrame(course_details)
+    df
+    
 background_css1 = f"""
 <style>
 [data-testid="stAppViewContainer"] {{
