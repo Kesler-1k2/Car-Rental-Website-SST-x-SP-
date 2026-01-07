@@ -30,9 +30,12 @@ elif page == 'Car Rental':
     with st.form('profile_form'):
         name = st.text_input('Name')
         email = st.text_input('Email')
-        options = ["Toyota Sienta", "Toyota Prius", "Mazda CX-3", "Subaru e-Outback"]
-        selection = st.pills("Directions", options, selection_mode="single")
-        st.markdown(f"Your selected options: {selection}.")
+        
+        option = st.selectbox(
+            "Which car would you like to rent?",
+            ("Toyota Sienta", "Toyota Prius", "Mazda CX-3", "Subaru e-Outback"),
+        )
+        st.write("You selected:", option)
         newsletter = st.checkbox('Subscribe to newsletter')
         submitted = st.form_submit_button('Submit')
 
