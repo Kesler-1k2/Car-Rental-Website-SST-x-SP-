@@ -102,8 +102,7 @@ st.set_page_config(
 )
 
 # Do not continue if check_password is not True.
-if not check_password():
-    st.stop()
+
 
 # endregion <--------- Streamlit App Configuration --------->
 
