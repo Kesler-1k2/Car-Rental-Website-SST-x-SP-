@@ -68,8 +68,6 @@ background_css1 = f"""
 </style>
 """
 
-# 2. Inject the CSS into the Streamlit app
-st.markdown(background_css1, unsafe_allow_html=True)
 
 # 3. Your actual Python logic goes here
 
