@@ -54,6 +54,8 @@ elif page == 'List of Available Cars':
 
 elif page == 'Help':
   
+  st.title("AI Chatbot")
+
   form = st.form(key="form")
   form.subheader("Prompt")
 
@@ -106,25 +108,3 @@ st.set_page_config(
 
 # endregion <--------- Streamlit App Configuration --------->
 
-st.title("Streamlit App")
-
-form = st.form(key="form")
-form.subheader("Prompt")
-
-user_prompt = form.text_area("Enter your prompt here", height=200)
-
-if form.form_submit_button("Submit"):
-
-    st.toast(f"User Input Submitted - {user_prompt}")
-
-    st.divider()
-
-    response, course_details = process_user_message(user_prompt)
-    st.write(response)
-    print(response)
-
-    st.divider()
-
-    print(course_details)
-    df = pd.DataFrame(course_details)
-    df
