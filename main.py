@@ -51,31 +51,30 @@ elif page == 'List of Available Cars':
 # 1. Define the CSS for the background image
 # We use Python f-strings to make it easy to swap the URL if needed.
   st.header("Cars Available")
-image_url = "https://images.unsplash.com/photo-1542281286-9e0a16bb7366"
 
 elif page == 'Help':
   
-form = st.form(key="form")
-form.subheader("Prompt")
+  form = st.form(key="form")
+  form.subheader("Prompt")
 
-user_prompt = form.text_area("Enter your prompt here", height=200)
+  user_prompt = form.text_area("Enter your prompt here", height=200)
 
-if form.form_submit_button("Submit"):
+  if form.form_submit_button("Submit"):
 
-    st.toast(f"User Input Submitted - {user_prompt}")
+      st.toast(f"User Input Submitted - {user_prompt}")
 
-    st.divider()
+      st.divider()
 
-    response, course_details = process_user_message(user_prompt)
-    st.write(response)
-    print(response)
+      response, course_details = process_user_message(user_prompt)
+      st.write(response)
+      print(response)
 
-    st.divider()
+      st.divider()
 
-    print(course_details)
-    df = pd.DataFrame(course_details)
-    df
-    
+      print(course_details)
+      df = pd.DataFrame(course_details)
+      df
+
 background_css1 = f"""
 <style>
 [data-testid="stAppViewContainer"] {{
