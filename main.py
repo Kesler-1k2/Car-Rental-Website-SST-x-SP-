@@ -4,7 +4,11 @@ import pandas as pd
 import os   # <--- This was missing
 import csv  # <--- This is needed for writing the file
 from datetime import datetime
-
+image_url1 = 'https://www.toyota.com.sg/showroom/new-models/-/media/f774090eab764ec6823ef7bd29e9950e.png'
+image_url2 = 'https://images.hgmsites.net/lrg/2025-toyota-prius-limited-gs-angular-front-exterior-view_100965385_l.webp'
+image_url3 = 'https://cdn.carchoice.com.sg/web/brandnew/colour-toyota-rav4-gxl-hybrid-GLACIER%20WHITE.png?alt=media&token=17008c5b-a5a3-46bd-a1a2-6dc40797faa5'
+image_url4 = 'https://s3-ap-southeast-1.amazonaws.com/motoristprod/editors%2Fimages%2F1664429131076-cx3-feature.jpg'
+image_url5 = 'https://media.mediaresults.com/wp-content/uploads/2025/08/26-trailseeker.webp'
 # 1. SETUP PAGE CONFIG (Must be first)
 st.set_page_config(layout="centered", page_title="VB Transport Ltd")
 current_datetime = datetime.now()
@@ -42,7 +46,7 @@ elif st.session_state.current_page == 'Car Rental':
         email = st.text_input('Email')
         option = st.selectbox(
             "Which car would you like to rent?",
-            ("Toyota Sienta", "Toyota Prius", "Mazda CX-3", "Subaru e-Outback"),
+            ("Toyota Sienta", "Toyota Prius", "Toyota RAV4","Mazda CX-3", "Subaru e-Outback"),
         )
         newsletter = st.checkbox('Subscribe to newsletter')
         submitted = st.form_submit_button('Submit')
@@ -85,9 +89,11 @@ elif st.session_state.current_page == 'Car Rental':
 # 3. AVAILABLE CARS
 elif st.session_state.current_page == 'List of Available Cars':
     st.header("Cars Available")
-    cars = ["Toyota Sienta", "Toyota Prius", "Mazda CX-3", "Subaru e-Outback"]
-    for car in cars:
-        st.caption(f"• {car}")
+    st.image(image_url1, caption="Toyota Sienta", use_column_width=True)
+    st.image(image_url2, caption="Toyota Prius", use_column_width=True)
+    st.image(image_url3, caption="Toyota RAV4", use_column_width=True)
+    st.image(image_url4, caption="Mazda CX-3", use_column_width=True)
+    st.image(image_url5, caption="Subaru e-Outback", use_column_width=True)
 
 # 4. HELP PAGE
 elif st.session_state.current_page == 'Help':
