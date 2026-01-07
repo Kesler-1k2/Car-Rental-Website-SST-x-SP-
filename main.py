@@ -10,7 +10,7 @@ current_datetime = datetime.now()
 st.title("VB Transport Ltd")
 
 st.write(':red[#1 Car Rental Company in Singapore]')
-
+page = "Home"
 st.caption("R. VB Ltd")
 if st.sidebar.button("Home"):
     page = "Home"
